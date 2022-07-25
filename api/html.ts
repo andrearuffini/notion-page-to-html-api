@@ -12,7 +12,7 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
     const { html } = content;
     
     console.log({
-      html
+      html: encodeURIComponent(html)
     })
 
     response.setHeader('Content-Type', 'text/html');
