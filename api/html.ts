@@ -15,8 +15,8 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
       html: encodeURIComponent(html)
     })
 
-    response.setHeader('Content-Type', 'text/html');
-    response.status(200).send(html);
+    response.setHeader('Content-Type', 'text/plain');
+    response.status(200).send(encodeURIComponent(html));
   } catch (err) {
     switch (err.name) {
       case 'MissingIdError':
