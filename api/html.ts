@@ -10,6 +10,8 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
     const url = `https://notion.so/${id}`;
     const content = await NotionPageToHtml.convert(url);
     const { html } = content;
+    
+    console.log(content)
 
     response.setHeader('Content-Type', 'text/html');
     response.status(200).send(html);
