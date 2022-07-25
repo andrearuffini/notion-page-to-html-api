@@ -11,7 +11,9 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
     const content = await NotionPageToHtml.convert(url);
     const { html } = content;
     
-    console.log(content)
+    console.log({
+      html
+    })
 
     response.setHeader('Content-Type', 'text/html');
     response.status(200).send(html);
