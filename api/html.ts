@@ -1,4 +1,3 @@
-import { NowRequest, NowResponse } from '@vercel/node';
 import NotionPageToHtml from 'notion-page-to-html';
 import { MissingIdError } from '../_errors/missing-id';
 
