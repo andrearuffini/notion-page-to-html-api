@@ -15,8 +15,9 @@ export const handler = async (request: NowRequest, response: NowResponse): Promi
       html: encodeURIComponent(html)
     })
 
-    response.setHeader('Content-Type', 'text/plain');
-    response.status(200).send(encodeURIComponent(html));
+    // response.setHeader('Content-Type', 'text/plain');
+    // response.status(200).send(encodeURIComponent(html));
+    return html
   } catch (err) {
     switch (err.name) {
       case 'MissingIdError':
