@@ -16,9 +16,15 @@ export const handler = async (event) => {
 
     // response.setHeader('Content-Type', 'text/plain');
     // response.status(200).send(encodeURIComponent(html));
-    return html
+    return {
+      body: html,
+      statusCode: 200
+    }
   } catch (err) {
-    throw err
+    return {
+      body: err.name,
+      statusCode: 500
+    }
     // switch (err.name) {
     //   case 'MissingIdError':
     //   case 'InvalidPageUrlError':
