@@ -1,9 +1,9 @@
 import NotionPageToHtml from 'notion-page-to-html';
 import { MissingIdError } from '../_errors/missing-id';
 
-export const handler = async (request: NowRequest, response: NowResponse): Promise<void | NowResponse> => {
+export const handler = async (event) => {
   try {
-    const { id } = request.query;
+    const { id } = event.queryStringParameters;
     if (!id) throw new MissingIdError();
 
     const url = `https://notion.so/${id}`;
