@@ -2,7 +2,7 @@ import { NowRequest, NowResponse } from '@vercel/node';
 import NotionPageToHtml from 'notion-page-to-html';
 import { MissingIdError } from '../_errors/missing-id';
 
-export default async (request: NowRequest, response: NowResponse): Promise<void | NowResponse> => {
+export const handler = async (request: NowRequest, response: NowResponse): Promise<void | NowResponse> => {
   try {
     const { id } = request.query;
     if (!id) throw new MissingIdError();
@@ -29,3 +29,5 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
     }
   }
 };
+
+export default handler
