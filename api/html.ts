@@ -19,15 +19,16 @@ export const handler = async (request: NowRequest, response: NowResponse): Promi
     // response.status(200).send(encodeURIComponent(html));
     return html
   } catch (err) {
-    switch (err.name) {
-      case 'MissingIdError':
-      case 'InvalidPageUrlError':
-        return response.status(400).send(err.message);
-      case 'NotionPageAccessError':
-        return response.status(401).send(err.message);
-      default:
-        return response.status(500).send(err.message);
-    }
+    throw err
+    // switch (err.name) {
+    //   case 'MissingIdError':
+    //   case 'InvalidPageUrlError':
+    //     return response.status(400).send(err.message);
+    //   case 'NotionPageAccessError':
+    //     return response.status(401).send(err.message);
+    //   default:
+    //     return response.status(500).send(err.message);
+    // }
   }
 };
 
